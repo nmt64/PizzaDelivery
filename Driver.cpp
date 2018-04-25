@@ -18,21 +18,24 @@ using namespace std;
 /* Constructor
  @pre: none
  @post: : Creates a logged-in driver with the given name.  */
-Driver:: Driver(const string name){
+Driver:: Driver(const string aName): name(aName), isLoggedIn(true), isOnDelivery(false), hasDelivered(false), totalDeliveres(0), totalMinDelivering(0), totalMinDriving(0), totalTips(0.0), timeDepart(Time()), timeDeliver(Time()), timeArrive(Time()), order(Order())
+{
     
 }
 
 /*Assignment operator
  @pre: none
  @post: Initializes the Driver to be equivalent to the other Driver object parameters.*/
-Driver:: Driver(Driver& anotherDriver){
+Driver:: Driver(Driver& anotherDriver): name(anotherDriver.name), isLoggedIn(anotherDriver.isLoggedIn), isOnDelivery(anotherDriver.isOnDelivery), hasDelivered(anotherDriver.hasDelivered), totalDeliveries(anotherDriver.totalDeliveries), totalMinDelivering(anotherDriver.totalMinDelivering), totalTips(anotherDriver.totalTips), timeDepart(anotherDriver.timeDepart), timeDeliver(anotherDriver.timeDeliver), timeArrive(anotherDriver.timeArrive), order(anotherDriver.order), totalMinDriving(anotherDriver.totalMinDriving)
+{
     
 }
 
 /* Overload assignment operator:
  @pre: none
  @post: Sets the Driver to be equivalent to the other and returns a reference to the modified Driver.*/
-Driver& Driver::operator=(Driver& anotherDriver){
+Driver& Driver::operator=(Driver& anotherDriver)
+{
     
 }
 

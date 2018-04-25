@@ -17,7 +17,7 @@
 
 using namespace std;
 
-class Order {
+class Driver {
     //The Driver class represents a pizza delivery driver.
     //The driver can be in one of several states: not logged in, logged in and at the restaurant, delivering (i.e., on the way to a delivery), and driving (i.e., on the way back from a delivery).
     //The driver keeps track of its own stats (time delivering, time driving, tips, and number of deliveries). If the driver is currently delivering an order, the driver stores the order.
@@ -27,7 +27,7 @@ public:
     /* Constructor
      @pre: none
      @post: : Creates a logged-in driver with the given name.  */
-    Driver(const string name);
+    Driver(const string aName);
     
     /*Assignment operator
      @pre: none
@@ -68,7 +68,6 @@ public:
      @pre:
      @post:Returns the driver’s name. */
     string getName() const;
-
     
     /*Get the total number
      @pre: none
@@ -108,13 +107,15 @@ public:
     /* Checking if the driver logged in
      @pre: none
      @post: Returns true if and only if the driver is logged in. */
-    bool isLoggedIn();
+    bool loggedIn();
     
 private:
     
     string name; // Driver's name
 
     bool isLoggedIn; //True if the driver is on delivery, false otherwise
+   
+    bool isOnDelivery;  //True if driver is on delivery, false otherwise
     
     bool hasDelivered; // True if the order has been delivered, false otherwise
     

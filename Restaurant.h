@@ -77,8 +77,9 @@ private:
     int totalOrderTime; // The total time of all orders ( from receiving to delivering
     
     
-    //Precondition: none
-    //Postcondition: returns the average time for each order (from receiving to delivering)
+    /*avg order time
+     @Pre: none
+     @Post: returns the average time for each order (from receiving to delivering)*/
     float averageOrderTime() const;
 };
 #endif /* Restaurant_hpp */

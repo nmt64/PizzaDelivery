@@ -19,7 +19,7 @@
 /* Create an empty restaurant
  @pre: none
  @post: Create an initial restaurant without any orders/drivers */
-Restaurant:: Restaurant(){
+Restaurant:: Restaurant(): totalOrders(0), totalOrderTime(0){
     
 }
 
@@ -77,4 +77,12 @@ Order* Restaurant::departNextOrder() throw (logic_error){
  @post: The order carried by the driver is delivered at the given time. The driver receives the given tip.  */
 void Restaurant::deliver(Driver* driver, const Time time, const float tip){
     
+}
+
+/*avg order time
+ @Pre: none
+ @Post: returns the average time for each order (from receiving to delivering)*/
+float Restaurant::averageOrderTime() const
+{
+
 }
