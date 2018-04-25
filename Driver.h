@@ -29,6 +29,16 @@ public:
      @post: : Creates a logged-in driver with the given name.  */
     Driver(const string name);
     
+    /*Assignment operator
+     @pre: none
+     @post: Initializes the Driver to be equivalent to the other Driver object parameters.*/
+    Driver(Driver& anotherDriver);
+    
+    /* Overload assignment operator:
+    @pre: none
+    @post: Sets the Driver to be equivalent to the other and returns a reference to the modified Driver.*/
+    Driver& operator=(Driver& anotherDriver);
+    
     /* Login driver
      @pre: Driver is not logged in.
      @post: Logs the driver in.  */
@@ -42,27 +52,23 @@ public:
     /* Driver is delivering
      @pre: : Driver is logged in and at the restaurant.
      @post: Driver is delivering. Departure time is recorded.  */
-    void depart(Time time, Order o) throw (logic_error);
+    void depart(const Time time, const Order o) throw (logic_error);
     
     /*  Status of delivered driver
      @pre: Driver is delivering, tip >= 0.
      @post: Driver is not delivering. Driver’s stats are updated. */
-    void deliver(Time time, float tip) throw (logic_error);
+    void deliver(const Time time,const float tip) throw (logic_error);
     
     /* Status of available drivers
      @pre: Driver is driving but not delivering.
      @post: Driver is at the restaurant. Driver’s stats are updated.  */
-    void arrive(Time time) throw (logic_error);
+    void arrive(const Time time) throw (logic_error);
     
     /* Driver's name
      @pre:
      @post:Returns the driver’s name. */
-    string getName();
-    
-    /* Checking if the driver logged in
-     @pre: none
-     @post: Returns true if and only if the driver is logged in. */
-    bool isLoggedIn();
+    string getName() const;
+
     
     /*Get the total number
      @pre: none
@@ -93,6 +99,16 @@ public:
      @pre: none
      @post: Returns a string containing the driver’s name, state (e.g., not logged in), and, if the driver is delivering an order, the departure time and toString of the order being delivered.  */
     string toString() const;
+    
+    /*Avg delivery time
+     @pre: none
+     @post: average time per completed delivery of driver (from “depart” to “deliver”). Return N/A if there is no completed delivery*/
+    float averageDeliveryTime() const;
+    
+    /* Checking if the driver logged in
+     @pre: none
+     @post: Returns true if and only if the driver is logged in. */
+    bool isLoggedIn();
     
 private:
     
