@@ -13,6 +13,9 @@
  @post: constructor; creates an order with the given order and information*/
 Order:: Order( Time time, string info)
 {
+    this->time = time;
+    this->infor = info;
+    ordersStatus = 0;
     
 }
 
@@ -21,7 +24,9 @@ Order:: Order( Time time, string info)
  @post: Order is out for delivery*/
 void Order:: depart() throw (logic_error)
 {
-    
+    if(ordersStatus != 0)
+        throw logic_error("Order is not at restaurant.");
+    ordersStatus = 1;
 }
 
 /*delivery
@@ -29,7 +34,10 @@ void Order:: depart() throw (logic_error)
  @post: Order is delivered. Time to delivery is recorded*/
 void Order:: deliver(const Time time) throw (logic_error)
 {
-    
+        if(ordersStatus != 1)
+            throw logic_error ("Order is not out for delivery." );
+    deliverTime = time;
+    ordersStatus = 2;
 }
 
 /*Calculate time to delivery
@@ -37,7 +45,9 @@ void Order:: deliver(const Time time) throw (logic_error)
  @post: returns the minutes until the order is delivered*/
 int Order:: getMinToDelivery() const throw (logic_error)
 {
-    
+    if (ordersStatus != 1)
+        throw logic_error ("Order is not out for delivery");
+    return Time:: elapsedMin(time, deliverTime);
 }
 
 /*show Structure
@@ -45,5 +55,5 @@ int Order:: getMinToDelivery() const throw (logic_error)
  @post: Show a string containing the order time and information*/
 string Order:: toString() const
 {
-    
+    return time.toString() + " "  + info;
 }

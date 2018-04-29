@@ -47,12 +47,12 @@ public:
     /*
      @pre: none
      @post:Adds the given driver to the system.  */
-    void addDriver(Driver * driver) const throw (logic_error);
+    void addDriver(Driver* driver) const throw (logic_error);
     
     /*
      @pre: none
      @post: Adds the given order to the system, enqueuing it for cooking.  */
-    void addOrder(Order * order);
+    void addOrder(Order* order);
     
     /*
      @pre: The cooking queue is not empty.

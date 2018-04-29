@@ -119,7 +119,7 @@ private:
     
     bool hasDelivered; // True if the order has been delivered, false otherwise
     
-    int totalDeliveres; // total deliveries
+    int totalDeliveries; // total deliveries
     
     int totalMinDelivering; // total min spent per deivery ( from departing to delivering)
     
