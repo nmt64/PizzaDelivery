@@ -47,7 +47,7 @@ public:
     /*
      @pre: none
      @post:Adds the given driver to the system.  */
-    void addDriver(Driver* driver) const throw (logic_error);
+    void addDriver(Driver* driver) throw (logic_error);
     
     /*
      @pre: none
@@ -67,7 +67,8 @@ public:
     /*
      @pre: none
      @post: The order carried by the driver is delivered at the given time. The driver receives the given tip.  */
-    void deliver(Driver * driver, const Time time, const float tip);
+    void deliver(Driver* driver, const Time time, const float tip);
+    
 private:
     vector<Driver*> driver_list; // A vector containing all the drivers
     deque<Order*> order_queue; // The cooking queue

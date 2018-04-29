@@ -24,7 +24,7 @@ public:
     /*Constructor
      @pre: none
      @post: constructor; creates an order with the given order and information*/
-    Order( const Time time = Time(),  const string info = "");
+    Order( const Time time = Time(), const string info = "");
     
     /* depart time
      @pre: Order is at the restaurant.

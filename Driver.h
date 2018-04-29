@@ -72,7 +72,7 @@ public:
     /*Get the total number
      @pre: none
      @post:Returns the total number of completed deliveries. */
-    int getTotalDeliveries();
+    int getTotalDeliveries() const;
     
     /* Total delivering time
      @pre: none
@@ -82,12 +82,12 @@ public:
     /* Estimate the total spend time
      @pre: none
      @post: Returns the total minutes spent driving (i.e., between “depart” and “arrive” commands). */
-    int getTotalMinDriving();
+    int getTotalMinDriving() const;
     
     /* Show the total tips amount
      @pre: none
      @post: Returns the total tips received, in dollars.  */
-    float getTotalTips();
+    float getTotalTips() const;
     
     /* Show the infor of delivering number
      @pre: Driver is delivering.

@@ -6,13 +6,12 @@
 //  Copyright © 2018 Nguyen Tam. All rights reserved.
 //
 
-#ifndef Time_hpp
-#define Time_hpp
+#ifndef Time_h
+#define Time_h
 
 #include <stdio.h>
 #include <string>
-#include "Time.h"
-#include "Order.h"
+
 
 using namespace std;
 class Time {

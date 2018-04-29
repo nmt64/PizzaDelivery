@@ -66,7 +66,7 @@ void Restaurant::summary() const
         if ((**driver).averageDeliveryTime() == 0) // If driver did not make any delivery, print "N/A"
             cout << "N/A" << endl;
         else
-            cout << fixed << setprecision(1) << (**Driver).averageDeliveryTime() << endl;
+            cout << fixed << setprecision(1) << (**driver).averageDeliveryTime() << endl;
         
         cout << " Total Driving Time:" << (**driver).getTotalMinDriving() << endl;
         cout << " Total Tips: " <<(**driver).getTotalTips() << endl;

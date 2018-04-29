@@ -140,7 +140,7 @@ string Driver::getName() const{
 /*Get the total number
  @pre: none
  @post:Returns the total number of completed deliveries. */
-int Driver::getTotalDeliveries(){
+int Driver::getTotalDeliveries() const{
     return totalDeliveries;
 }
 
@@ -154,14 +154,14 @@ int Driver::getTotalMinDelivering(){
 /* Estimate the total spend time
  @pre: none
  @post: Returns the total minutes spent driving (i.e., between “depart” and “arrive” commands). */
-int Driver::getTotalMinDriving(){
+int Driver::getTotalMinDriving() const{
     return totalMinDriving;
 }
 
 /* Show the total tips amount
  @pre: none
  @post: Returns the total tips received, in dollars.  */
-float Driver::getTotalTips(){
+float Driver::getTotalTips() const{
     return totalTips;
 }
 
