@@ -55,5 +55,5 @@ int Order:: getMinToDelivery() const throw (logic_error)
  @post: Show a string containing the order time and information*/
 string Order:: toString() const
 {
-    return time.toString() + " "  + info;
+    return time.toString() + " "  + infor;
 }

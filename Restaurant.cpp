@@ -158,8 +158,8 @@ void Restaurant::deliver(Driver* driver, const Time time, const float tip)
  @Pre: none
  @Post: returns the average time for each order (from receiving to delivering)*/
 float Restaurant::averageOrderTime() const
-{S
-    loat average_time = (totalOrders != 0) ? (totalOrderTime / totalOrders) : 0; //calculates the average time per order, 0 if there is no order
+{
+    float average_time = (totalOrders != 0) ? (totalOrderTime / totalOrders) : 0; //calculates the average time per order, 0 if there is no order
     
     return average_time;
 }
