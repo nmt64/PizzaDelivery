@@ -28,7 +28,7 @@ Driver:: Driver(const string aName): name(aName), isLoggedIn(true), isOnDelivery
  @post: Initializes the Driver to be equivalent to the other Driver object parameters.*/
 Driver:: Driver(Driver& anotherDriver): name(anotherDriver.name), isLoggedIn(anotherDriver.isLoggedIn), isOnDelivery(anotherDriver.isOnDelivery), hasDelivered(anotherDriver.hasDelivered), totalDeliveries(anotherDriver.totalDeliveries), totalMinDelivering(anotherDriver.totalMinDelivering), totalTips(anotherDriver.totalTips), timeDepart(anotherDriver.timeDepart), timeDeliver(anotherDriver.timeDeliver), timeArrive(anotherDriver.timeArrive), order(anotherDriver.order), totalMinDriving(anotherDriver.totalMinDriving)
 {
-    
+  //
 }
 
 /* Overload assignment operator:
@@ -68,7 +68,7 @@ void Driver:: login() throw (logic_error)
  @post: Logs the driver out. */
 void Driver::logout() throw (logic_error)
 {
-    if(isLoggedIn)
+    if(!isLoggedIn)
     {
         throw logic_error("Is already logged out");
     }
@@ -79,8 +79,8 @@ void Driver::logout() throw (logic_error)
  @pre: : Driver is logged in and at the restaurant.
  @post: Driver is delivering. Departure time is recorded.  */
 void Driver::depart(const Time time, const Order o) throw (logic_error){
-    if(!isLoggedIn || hasDelivered)
-        throw logic_error("Driver is not logged in or is already at the restaurant");
+    if(!isLoggedIn)
+        throw logic_error("Driver is not logged in");
     
     if (isOnDelivery)
         throw logic_error("Driver is already delivering");
@@ -117,13 +117,12 @@ void Driver::deliver(const Time time,const float tip) throw (logic_error){
  @pre: Driver is driving but not delivering.
  @post: Driver is at the restaurant. Driver’s stats are updated.  */
 void Driver::arrive(const Time time) throw (logic_error){
-    if(isOnDelivery)
+    if(!isOnDelivery)
         throw logic_error(" Driver is on delivery");
-    if(hasDelivered){
+    if(!hasDelivered)
         throw logic_error("Order has not been delivered");
-    }
     
-    isOnDelivery = true;
+    isOnDelivery = false;
     timeArrive = time;
     totalMinDriving = Time::elapsedMin(timeDepart, timeArrive);
     hasDelivered = false;
@@ -169,9 +168,8 @@ float Driver::getTotalTips() const{
  @pre: Driver is delivering.
  @post: Returns the order being delivered.  */
 Order Driver::getOrder() throw (logic_error){
-    if(hasDelivered)
-        throw logic_error("Has already delivered order");
-    
+    if(!isOnDelivery)
+        throw logic_error("Driver is not on delivery");
     return order;
 }
 
@@ -188,7 +186,7 @@ string Driver::toString() const{
         driver_info.append("is not logged in.");
     
     if (isOnDelivery)
-        driver_info += "and departed at" + order.toString();
+        driver_info += "and departed at " + order.toString();
     
     return driver_info;
 }
@@ -197,7 +195,9 @@ string Driver::toString() const{
  @pre: none
  @post: average time per completed delivery of driver (from “depart” to “deliver”). Return N/A if there is no completed delivery*/
 float Driver::averageDeliveryTime() const{
-    return (totalMinDelivering/totalDeliveries);
+    float average_time = (totalDeliveries != 0) ? (float)totalMinDelivering / totalDeliveries : 0;
+    
+    return average_time;
 }
 
 /* Checking if the driver logged in

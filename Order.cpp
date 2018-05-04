@@ -45,7 +45,7 @@ void Order:: deliver(const Time time) throw (logic_error)
  @post: returns the minutes until the order is delivered*/
 int Order:: getMinToDelivery() const throw (logic_error)
 {
-    if (ordersStatus != 1)
+    if (ordersStatus != 2)
         throw logic_error ("Order is not out for delivery");
     return Time:: elapsedMin(time, deliverTime);
 }

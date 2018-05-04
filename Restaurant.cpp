@@ -28,7 +28,8 @@ Restaurant:: Restaurant(): totalOrders(0), totalOrderTime(0){
  @post: Prints status of orders and logged-in drivers, as specified by the “status” command description. */
 void Restaurant::status() const
 {
-    cout << "Order waiting to cook:" << endl;
+    
+    cout << "\n\nOrder waiting to cook:" << endl;
     
     //iterates through cooking queue and prints out the information of each order
     for (deque<Order*>:: const_iterator order = order_queue.begin(); order != order_queue.end(); order++)
@@ -69,7 +70,7 @@ void Restaurant::summary() const
             cout << fixed << setprecision(1) << (**driver).averageDeliveryTime() << endl;
         
         cout << " Total Driving Time:" << (**driver).getTotalMinDriving() << endl;
-        cout << " Total Tips: " <<(**driver).getTotalTips() << endl;
+        cout << " Total Tips: " << fixed << setprecision(2) << (**driver).getTotalTips() << endl;
     }
     
     cout << endl;

@@ -1,0 +1,1 @@
+login Tamlogin Azul order 07:00 1 small fry to 114 Brushorder 08:05 1 larger pizza to 768 Holden Hallserve 09:02serve 09:30depart 10:00 Tamdeliver 10:30 Tam 50.00order 12:00 1 Mac and Cheese to 1000 Beall Avedepart 13:00 Azularrive 13:30 Tamserve 14:10depart 15:05 Tamdeliver 16:20 Azul 10.00deliver 17:10 Tam 20.00arrive 17:30 Azullogout Azulstatussummaryquit

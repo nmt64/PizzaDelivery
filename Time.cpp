@@ -17,9 +17,9 @@
 int Time::CharToNumber(char achar) const throw (logic_error)
 {
     int num = achar - '0';
-    if (num<0 || num > 9) // Make sure achar is a character between '0' and '9'
+    if (num < 0 || num > 9) // Make sure achar is a character between '0' and '9'
         throw logic_error("Time must be in range 00:00 to 23:59.");
-    return num;
+        return num;
 }
 
 /* Constructor
@@ -33,9 +33,9 @@ Time:: Time(string strTime) throw (logic_error)
         throw logic_error("Input must be in format HH:MM ex: 09:53.");
     
     int chour = 10*CharToNumber(strTime[0]) + CharToNumber(strTime[1]); // hour in integer when convert
-    // from string
+                                                                        // from string
     int cmin = 10*CharToNumber(strTime[3]) + CharToNumber(strTime[4]);  // minute in integer when
-    // convert from string
+                                                                        // convert from string
     if (0 > chour || 23 < chour || 0 > cmin || 59 < cmin)
         throw logic_error("Time must be in range 00:00 to 23:59.");
     else
